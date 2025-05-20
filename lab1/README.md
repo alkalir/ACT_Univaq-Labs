@@ -13,7 +13,7 @@ While the examples here are run on a workstation with:
 
 you can **run this lab on your own computer**, even if it's different. If you're on **Windows or macOS**, you can:
 
-* Use Windows Performance Analyzer or Intel VTune
+* Use Windows Performance Analyzer (or Intel VTune if you have an Intel processor)
 * Use Apple Instruments on macOS
 * Use Linux in a VM or WSL with `perf`
 
