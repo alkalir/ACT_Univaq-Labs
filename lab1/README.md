@@ -2,7 +2,7 @@
 
 ## Overview
 
-This lab introduces fundamental concepts in CPU microarchitecture by analyzing how a program executes on modern superscalar out-of-order processors. It uses performance counters to measure real effects of instruction-level parallelism (ILP), branch prediction, SIMD usage, and CPU features such as hyper-threading and cache behavior.
+This lab introduces fundamental concepts in CPU microarchitecture by analyzing how a program executes on modern superscalar out-of-order processors. It uses performance counters to measure real effects of instruction-level parallelism (ILP), branch prediction, SIMD usage, and CPU features such as Simultaneous Multi-Threading (hyper-threading in Intel terminology) and cache behavior.
 
 While the examples here are run on a workstation with:
 
