@@ -25,6 +25,20 @@ you can **run this lab on your own computer**, even if it's different. If you're
 * Decode: 4 instructions/cycle
 * Out-of-order execution based on Tomasulo-style pipeline
 
+Haswell-E includes 8 execution ports, each connected to one or more types of functional units. The CPU can issue multiple micro-operations per cycle as long as they use different ports. Here's a simplified mapping:
+
+- **Port 0**: Integer ALU, floating-point multiply, branch execution
+- **Port 1**: Integer ALU, integer multiply, LEA (address calculation)
+- **Port 2**: Load address generation (used for memory reads)
+- **Port 3**: Load address generation (used for memory reads)
+- **Port 4**: Store address and data generation (used for memory writes)
+- **Port 5**: Integer ALU, floating-point addition
+- **Port 6**: Branch unit (used for jumps, calls, returns)
+- **Port 7**: SIMD/floating-point operations, shuffle, logic
+
+Workloads that rely heavily on one type of instruction (e.g., many integer multiplications) may saturate a single port (like port 1), becoming a bottleneck even if other ports are underutilized.
+
+
 ## Branch Prediction (Haswell-E)
 
 * Multi-level, dynamic predictor
