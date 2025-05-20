@@ -2,7 +2,7 @@
 
 ## Overview
 
-This lab introduces fundamental concepts in CPU microarchitecture by analyzing how a program executes on modern superscalar out-of-order processors. It uses performance counters to measure real effects of instruction-level parallelism (ILP), branch prediction, SIMD usage, and CPU features such as Simultaneous Multi-Threading (hyper-threading in Intel terminology) and cache behavior.
+This lab introduces fundamental concepts in CPU microarchitecture by analyzing how a program executes on modern superscalar out-of-order processors. It uses performance counters to measure real effects of instruction-level parallelism (ILP), branch prediction, SIMD usage.
 
 While the examples here are run on a workstation with:
 
@@ -76,7 +76,7 @@ for (long i = 0; i < 100000000; ++i) {
 Compile and run:
 
 ```bash
-gcc -O2 -o simple_compute simple_compute.c
+gcc -O2 -o simple_compute main.c
 taskset -c 0 perf stat -e cycles,instructions ./simple_compute
 ```
 
@@ -89,12 +89,14 @@ Observed IPC: \~0.65
 * Backend-limited (not enough ILP)
 
 ### Unrolling
+Compile and run the applications main_unrolled2way.c and main_unrolled4way.c.
 
 * 2-way: \~0.7 IPC
 * 4-way: \~0.8 IPC
 * Still backend bound due to integer port pressure
 
 ### SIMD Version
+Compile and run main_simd32.c.
 
 Using AVX2:
 
@@ -123,6 +125,8 @@ SIMD result: incorrect due to overflow
 if (i < 50000000) x++; else x--;
 ```
 
+Compile and run pred_branch.c.
+
 * Branch miss rate: \~0.005%
 * Predictor learns quickly
 * IPC observed: **5.25** (inflated)
@@ -138,6 +142,7 @@ if (i < 50000000) x++; else x--;
 ```c
 if (rand() % 2) x++; else x--;
 ```
+Compile and run unpred_branch.c. 
 
 * Branch miss rate: \~0.19%
 * IPC \~1.25
@@ -157,4 +162,3 @@ if (toggle) x++; else x--;
 
 ---
 
-Stay tuned for parts 3–5 (Cache, Compiler flags, SMT) in the next labs!
