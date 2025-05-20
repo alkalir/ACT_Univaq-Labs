@@ -11,7 +11,7 @@ While the examples here are run on a workstation with:
 * 15MB L3 cache (shared across cores)
 * 6x L1D (32KB) and 6x L2 (256KB)
 
-...you can **run this lab on your own computer**, even if it's different. If you're on **Windows or macOS**, you can:
+you can **run this lab on your own computer**, even if it's different. If you're on **Windows or macOS**, you can:
 
 * Use Windows Performance Analyzer or Intel VTune
 * Use Apple Instruments on macOS
