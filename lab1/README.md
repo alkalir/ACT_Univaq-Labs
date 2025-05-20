@@ -152,13 +152,5 @@ Compile and run unpred_branch.c.
 * `rand()` is pseudorandom, deterministic
 * CPU still learns some patterns
 
-For truly hard-to-predict branches:
-
-```c
-int toggle = 0;
-toggle = 1 - toggle;
-if (toggle) x++; else x--;
-```
-
 ---
 
