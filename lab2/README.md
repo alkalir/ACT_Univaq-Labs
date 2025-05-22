@@ -1,8 +1,8 @@
 # Lab 2: Introduction to OpenMP Programming
 
-## 🧠 Objective
+## Objective
 
-This lab introduces students to parallel programming using **OpenMP**. You will analyze and experiment with C programs to:
+This lab introduces to parallel programming using **OpenMP**. You will analyze and experiment with C programs to:
 
 - Understand thread creation and management.
 - Explore performance impact of parallelization.
@@ -11,7 +11,7 @@ This lab introduces students to parallel programming using **OpenMP**. You will 
 
 ---
 
-## 🧪 Programs to Test and Analyze
+## Programs to Test and Analyze
 
 ### 1. `hello.c`
 - A basic sequential Hello World program.
@@ -24,12 +24,9 @@ This lab introduces students to parallel programming using **OpenMP**. You will 
 - Check how many threads are actually created and used.
 
 ### 3. `pi.c`
-- A sequential program that computes π using numerical integration.
+- A sequential program that computes pi using numerical integration.
 - **Goal**: Understand the midpoint rule and performance without parallelism.
-- Equation used:  
-  \[
-  \pi \approx \int_0^1 \frac{4}{1 + x^2} dx
-  \]
+
 
 ### 4. `pi_spmd_simple.c`
 - A simple **SPMD (Single Program, Multiple Data)** OpenMP implementation.
@@ -45,7 +42,7 @@ This lab introduces students to parallel programming using **OpenMP**. You will 
 
 ---
 
-## ⚙️ How to Compile
+## How to Compile
 
 Use `gcc` with OpenMP support:
 ```bash
