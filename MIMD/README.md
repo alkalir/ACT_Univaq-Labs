@@ -14,8 +14,6 @@ To follow this lab you need a C/C++ compiler with OpenMP support. This is availa
 - **macOS** — Install GCC via Homebrew: `brew install gcc`
 - **Windows** — Use WSL2 with GCC, or install GCC via MSYS2
 
-If you are unsure whether your compiler supports OpenMP, or you want a clean and identical environment regardless of your OS, a ready-to-use Docker image is available. In that case, follow the instructions in [docker/README.md](docker/README.md) first, then come back here.
-
 ---
 
 ## Your working folder
@@ -24,6 +22,12 @@ Create a folder on your machine where you will write and save all your code:
 
 - **Windows:** `C:\mylab`
 - **macOS / Linux:** `~/mylab`
+
+---
+
+## Docker
+
+If you are unsure whether your compiler supports OpenMP, or you want a clean and identical environment regardless of your OS, a ready-to-use Docker image is available. Follow the instructions in [docker/README.md](docker/README.md) and then come back here.
 
 ---
 
