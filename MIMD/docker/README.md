@@ -1,73 +1,61 @@
-# Welcome to MIMD Lab
+# Docker Setup
 
-In this lab you will learn how to exploit a MIMD (Multiple Instruction, Multiple Data) processor — the architecture behind virtually every modern CPU. You will do so using **OpenMP**, a widely adopted API for shared-memory parallel programming. OpenMP lets you parallelize existing C/C++ code incrementally, by adding compiler directives, with no need to rewrite your programs from scratch.
+## Step 1 — Install Docker Desktop
 
-By the end of this lab you will be able to write, compile, and benchmark parallel programs and reason about speedup, thread synchronization, and data sharing.
-
----
-
-## Requirements
-
-To follow this lab you need a C/C++ compiler with OpenMP support. This is available out of the box on most systems:
-
-- **Linux** — GCC is typically pre-installed. If not: `sudo apt install gcc`
-- **macOS** — Install GCC via Homebrew: `brew install gcc`
-- **Windows** — Use WSL2 with GCC, or install GCC via MSYS2
-
-If you are unsure whether your compiler supports OpenMP, or you want a clean and identical environment regardless of your OS, a ready-to-use Docker image is available. In that case, follow the instructions in [docker/README.md](docker/README.md) first, then come back here.
+Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) for your OS. Start it and wait until the whale icon in the system tray is stable.
 
 ---
 
-## Your working folder
+## Step 2 — Pull the image
 
-Create a folder on your machine where you will write and save all your code:
-
-- **Windows:** `C:\mylab`
-- **macOS / Linux:** `~/mylab`
-
----
-
-## Let's check your OpenMP compiler before we start
-
-Using any text editor (Notepad, VSCode, gedit, etc.), create a file called `test.c` with the following content and save it inside your working folder:
-
-```c
-#include <stdio.h>
-#include <omp.h>
-
-int main() {
-    #pragma omp parallel
-    printf("Thread %d of %d\n", omp_get_thread_num(), omp_get_num_threads());
-    return 0;
-}
-```
-
-### Compile and run
-
-**If you are using your own compiler**, open a terminal in your working folder and run:
+Open a terminal and run:
 
 ```bash
-gcc -fopenmp -o test test.c && ./test
+docker pull alkalir/mimdlab
 ```
 
-**If you are using Docker**, start the container as described in [docker/README.md](docker/README.md), then run the same command inside the container.
+This is a one-time download (~400 MB). After this you can work offline.
 
-You should see one line per available core, printed in arbitrary order:
+---
 
+## Step 3 — Start the container
+
+When you are ready to compile, open a terminal and run:
+
+**Windows (PowerShell):**
+```powershell
+docker run -it --rm -v C:\mylab:/lab alkalir/mimdlab
 ```
-Thread 3 of 12
-Thread 0 of 12
-Thread 7 of 12
-...
+
+**macOS / Linux:**
+```bash
+docker run -it --rm -v ~/mylab:/lab alkalir/mimdlab
 ```
 
-If you see this, your environment is working correctly.
+The `-v` flag mounts your `mylab` folder into the container at `/lab`. Any file you save in `mylab` from your machine is immediately visible inside the container, and vice versa.
 
-### Control the number of threads
+---
+
+## Step 4 — Check your files are there
+
+Inside the container, verify that your working folder is mounted correctly:
 
 ```bash
-export OMP_NUM_THREADS=4
-./test
+ls /lab
 ```
 
-Run the program again — you should now see exactly 4 lines.
+You should see the files you saved in `mylab` on your machine.
+
+---
+
+## Exit the container
+
+```bash
+exit
+```
+
+Your files remain in your `mylab` folder. The container is removed automatically (`--rm`), but the image stays and you can start a new container anytime.
+
+---
+
+You are all set — go back to [README.md](../README.md) and continue from there.
