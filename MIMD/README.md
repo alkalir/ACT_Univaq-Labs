@@ -75,3 +75,9 @@ export OMP_NUM_THREADS=4
 ```
 
 Run the program again — you should now see exactly 4 lines.
+
+---
+
+## Labs
+
+Once your environment is set up and the compiler check passes, work through the steps in order. Each step is self-contained in its own folder and has its own README with instructions. Start from `step1/` and proceed in order.
