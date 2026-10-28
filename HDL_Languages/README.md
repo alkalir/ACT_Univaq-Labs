@@ -1,9 +1,19 @@
-# ACT_Univaq-Labs
+# HDL Languages
 
-The following labs are available:
+This folder collects material on **Hardware Description Languages (HDLs)**, which are used to model, simulate and synthesize digital circuits.
 
-- lab1: This lab introduces fundamental concepts in CPU microarchitecture by analyzing how a program executes on modern superscalar out-of-order processors. It uses performance counters to measure real effects of instruction-level parallelism (ILP), branch prediction, SIMD usage.
+## Available languages
 
-- lab2: This lab introduces the multi-thread programming using OpenMP. It shows how to write a multi-threaded program and how to parallelize when the same instruction is repeated on multiple different data.
+| Language | Status | Folder |
+|----------|--------|--------|
+| VHDL | ✅ Available | [`VHDL`](./VHDL) |
+| Verilog | 🚧 Coming soon | – |
+| SystemVerilog | 🚧 Coming soon | – |
 
+## VHDL
 
+The [`VHDL`](./VHDL) folder is the entry point for learning VHDL. It points to the tutorials of the **Embedded Systems** course at Univaq, a great resource to study the language step by step.
+
+## Coming soon
+
+Material for **Verilog** and **SystemVerilog** will be added to this folder in the future. Stay tuned!
